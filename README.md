@@ -1,20 +1,17 @@
 # qcmgen: Générateur de QCM AMC 
 
-Ce programme, piloté par le script qcm.py permet:
+Ce programme permet:
 
 - d'initialiser un projet personnalisé de questionnaire basé sur auto-multiple-choice (AMC)
 - de générer des questions sur une base aléatoire par des scripts python simples.
-
-
-générateur de questions au format auto-multiple-choice/Latex permettant d'automatiser la création de questions aléatoires.
 
 [documentation AMC](https://download.auto-multiple-choice.net/auto-multiple-choice.en.pdf)
 
 ## Usage
 
-`./qcm.py -h`
+la manière la plus simple de lancer le programme est via le script qcm.py  : `./qcm.py -h`
 
-il est conseillé de faire un alias pour disposer d'une commander `qcm` pointant vers le script `qcm.py`
+il est conseillé de faire un alias pour disposer d'une commande `qcm` pointant vers le script `qcm.py`.
 
 ### intialisation d'un projet AMC
 
