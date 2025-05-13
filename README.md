@@ -7,18 +7,17 @@ Ce programme permet:
 
 [documentation AMC](https://download.auto-multiple-choice.net/auto-multiple-choice.en.pdf)
 
-## Usage
+## Usage
 
 la manière la plus simple de lancer le programme est via le script qcm.py  : `./qcm.py -h`
 
-il est conseillé de faire un alias pour disposer d'une commande `qcm` pointant vers le script `qcm.py`.
+il est conseillé de faire un alias-shell pour disposer d'une commande `qcm` pointant vers le script `qcm.py`.
 
 ### intialisation d'un projet AMC
 
 ex: 
 ```bash
 qcm.py init my_amc_project
-# ==> créer un repertoire DS_1 avec toute la structure de fichiers nécessaire pour une personnalisation des questions
 ```
 structure du projet créé par la commande `qcm init my_amc_project`:
 ```
