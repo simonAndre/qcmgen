@@ -1,0 +1,42 @@
+
+\setlength{\parindent}{0pt}\hspace*{\fill}%
+\begin{minipage}[c]{.45\linewidth}
+    \AMCcodeGridInt[vertical=false]{etu}{3}%% numéro d'étudiant sur 3 chiffres
+    \vspace{1em}
+    \fbox{
+        \begin{minipage}{.75\linewidth}
+        Date:
+        
+        \vspace*{0.5cm}\dotfill
+        \vspace*{1mm}
+        \end{minipage}
+    }
+    \vspace*{2mm}
+    
+\end{minipage}
+\begin{minipage}[c]{.45\linewidth}
+    \vspace{0.5cm}
+    $\longleftarrow{}$\hspace{0pt plus 1cm} Encodez votre code
+    élève dans la grille ci-contre et écrivez votre nom, prénom
+    dans le cadre ci-dessous.
+    
+    \vspace{3ex}
+    
+    %% La balise "champnom" sera découpée lors du scan et restitué à
+    %% l'enseignant sous forme d'image
+    \hfill\champnom{%
+        \fbox{%
+            \begin{minipage}{.9\linewidth}
+                Nom, prénom:
+                
+                \vspace*{.5cm}\dotfill
+                \vspace*{1mm}
+            \end{minipage}%
+            \vspace*{3mm}
+        }%
+    }
+\end{minipage}
+
+
+Veuillez répondre aux questions en cochant les cases de manière lisible et centrée sur la case. 
+En cas d'erreur, noircissez entièrement la case que vous ne souhaitez plus cocher et cochez la bonne case.

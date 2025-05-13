@@ -1,0 +1,47 @@
+\documentclass[a4paper]{article}
+
+
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[francais,bloc,completemulti,separateanswersheet,outsidebox]{automultiplechoice}
+\usepackage{multicol}
+\usepackage{minted}
+\usepackage[svgnames]{xcolor}
+\usepackage{verbatimbox}
+
+% affichage et définition du bareme pour une question simple
+\def\sanbar#1{\scoring{b=#1}(#1 pts)\hspace*{1em}}
+% affichage et définition du bareme pour une question multiple
+\def\sanbarm#1{\scoring{haut=#1,p=0}(#1 pts)\hspace*{1em}}
+
+\newcommand{\ph}[2]{
+	\AMCOpen{lines=#1,dots=false}{
+		\wrongchoice[F]{f}
+		\scoring{0}
+		\wrongchoice[P]{p}
+		\scoring{1}
+		\correctchoice[J]{j}
+		\scoring{#2}
+	}
+}
+
+\newcommand{\titre}[1]{
+	\vspace*{.8cm}
+	\begin{minipage}{\linewidth}
+		\hrule\vspace{2mm}
+		\centering\large\bf #1
+		\vspace{2mm}
+		\hrule
+	\end{minipage}
+	\vspace*{5mm}
+}
+
+\newcommand{\titrechapitre}[1]{
+	\vspace*{.8cm}
+	\begin{minipage}{\linewidth}
+		\centering\large\bf #1
+		\vspace{2mm}
+		\hrule
+	\end{minipage}
+	\vspace*{1.5cm}
+}

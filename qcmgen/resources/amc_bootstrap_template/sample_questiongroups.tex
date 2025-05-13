@@ -1,0 +1,144 @@
+
+\element{groupetest}{
+	\begin{question}{subnet1-0}\sanbar{1}
+On donne l'adresse suivante en notation CIDR: 62.21.67.188/30, quelle est l'adresse du sous-réseau?
+		\begin{multicols}{3}
+            \begin{choices}
+				\wrongchoice{62.21.67.188}
+				\correctchoice{62.21.67.188}
+				\wrongchoice{255.255.255.252}
+				\wrongchoice{62.21.67.255}
+				\wrongchoice{62.21.67.30}
+				\wrongchoice{62.21.67.189}
+			\end{choices}
+        \end{multicols}
+	\end{question}
+}
+\element{groupetest}{
+	\begin{question}{subnet1-1}\sanbar{1}
+On donne l'adresse suivante en notation CIDR: 189.244.129.161/29, quelle est l'adresse du sous-réseau?
+		\begin{multicols}{3}
+            \begin{choices}
+				\wrongchoice{189.244.129.161}
+				\correctchoice{189.244.129.160}
+				\wrongchoice{255.255.255.248}
+				\wrongchoice{189.244.129.255}
+				\wrongchoice{189.244.129.29}
+				\wrongchoice{189.244.129.161}
+			\end{choices}
+        \end{multicols}
+	\end{question}
+}
+
+
+
+
+
+\element{donneestables1}{
+\begin{question}{q-dt1}\sanbar{2}
+    On a extrait les deux premières lignes de différents fichiers.
+    Déterminer celui qui est un authentique fichier CSV :
+    \begin{choices}
+        \correctchoice{Nom,Pays,Temps
+
+        Camille Muffat,France,241.45}
+        \wrongchoice{Nom Pays Temps
+        
+        Camille Muffat France 241.45}
+        \wrongchoice{[
+        
+        \{ "Nom": "Camille Muffat", "Pays": "France", "Temps": 241.45\},}
+        \wrongchoice{[
+        
+        \{ Nom: "Camille Muffat", Pays: "France", Temps: 241.45\},}
+    \end{choices}
+\end{question}
+}
+
+
+\element{donneestables1}{  
+\begin{question}{q-dt3}\sanbar{2} On donne le tableau de `mendeleiev` construit de cette manière:
+    
+    mendeleiev = [['H','.','.','.','.','.','.','He'],
+
+    ['Li','Be','B','C','N','O','Fl','Ne'],
+
+    ['Na','Mg','Al','Si','P','S','Cl','Ar']]
+
+    Comment produire la liste des gaz rares, c'est-à-dire la liste des éléments de la dernière colonne ?
+    \begin{choices}
+        \correctchoice{gaz\_rares = [periode[7] for periode in mendeleiev]}
+        \wrongchoice{gaz\_rares = [periode for periode in mendeleiev[7]]}
+        \wrongchoice{gaz\_rares = [periode for periode[7] in mendeleiev]}
+        \wrongchoice{gaz\_rares = [periode[8] for periode in mendeleiev]}
+    \end{choices}
+\end{question}
+}
+\element{donneestables1}{
+\begin{question}{q7}\sanbar{2}
+    On exécute le code suivant :
+    \inputminted{python}{./prog4.py}
+    Quelle est la valeur de la variable v à la fin de cette exécution ?
+    \begin{multicols}{2}
+        \begin{choices}
+            \correctchoice{[3,6,9]}
+            \wrongchoice{18}
+            \wrongchoice{[1,4,7]}
+            \wrongchoice{[1,2,3,4,5,6,7,8,9]}
+        \end{choices}
+    \end{multicols}
+\end{question}
+}
+\setgroupmode{donneestables1}{withoutreplacement}
+
+
+
+
+
+
+
+\element{programmation1}{
+	\begin{question}{q4}\sanbar{2}
+	Quelle est la valeur affichée à l'exécution du programme Python suivant ?
+	\inputminted{python}{./prog1.py}
+	\begin{multicols}{3}
+		\begin{choices}
+			\wrongchoice{3}
+			\correctchoice{21}
+			\wrongchoice{\{ 'ftp': 21 \}}
+			\wrongchoice{Key not found}
+		\end{choices}
+	\end{multicols}
+\end{question}
+}
+\element{programmation1}{
+\begin{question}{q5}\sanbar{2}
+	On exécute le script suivant:
+	\inputminted{python}{./prog2.py}
+	Quelle est la valeur de m à la fin de son exécution ?
+	\begin{choices}
+		\wrongchoice{[[0, 0, 0, 0, 0], [0, 1, 2, 3, 4], [0, 2, 4, 6, 8]]}
+		\correctchoice{[[0, 0, 0], [0, 1, 2], [0, 2, 4], [0, 3, 6], [0, 4, 8]]}
+		\wrongchoice{[[1, 1, 1], [2, 4, 6], [3, 6, 9], [4, 8, 12], [5, 10, 15]]}
+		\wrongchoice{[[1, 1, 1, 1, 1], [2, 4, 6, 8, 10], [3, 6, 9, 12, 15], [4, 8, 12, 16, 20], [5, 10,15, 20, 25]]}
+	\end{choices}
+\end{question}
+}
+\element{programmation1}{
+\begin{question}{q6}\sanbar{2}
+	À quelle affectation sont équivalentes les instructions suivantes, où a, b sont des variables entières et c une
+variable booléenne ?
+	\inputminted{python}{./prog3.py}
+	Quelle est la valeur de m à la fin de son exécution ?
+	\begin{multicols}{2}
+		\begin{choices}
+			\correctchoice{c = (a==b) or (a > b+10)}
+			\wrongchoice{c = (a==b) and (a > b+10)}
+			\wrongchoice{c = not(a==b)}
+			\wrongchoice{c = not(a > b+10)}
+		\end{choices}
+	\end{multicols}
+\end{question}
+}
+
+\setgroupmode{programmation1}{withoutreplacement}

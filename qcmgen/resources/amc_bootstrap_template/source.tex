@@ -1,0 +1,64 @@
+\input{amc-form-preambule.tex}
+
+
+\begin{document}
+
+\input{sample_questiongroups.tex}
+\onecopy{2}{
+
+	\titre{DS n°xx - xxx 2025 - Questions}
+	
+	\begin{center}
+	\bf\em Pour répondre aux questions, utilisez exclusivement la feuille de réponse.
+	
+	Toute réponse apportée sur les autres pages sera ignorée.
+	
+	Le trèfle indique des réponses à choix multiple (1 ou plusieurs réponses possibles). Sans trèfle, une seule réponse possible.
+	
+	\end{center}	
+	
+	
+	%%% fin de l'en-tête
+	
+
+	\AMCopenOpts{lineheight=1.5em}
+	\def\AMCotextReserved{\emph{Reservé}}
+
+	% Les questions (ouvertes)
+
+	
+	\titrechapitre{Partie 1}
+
+	% \section*{Exercice : ...}
+	
+	\insertgroup{groupetest}
+
+	% pour une impression recto/verso : rajoute une ajoute page blanche sur nb pages impaire.
+	\AMCcleardoublepage
+
+
+	% Début de la page de réponses
+	\AMCformBegin 
+	
+	%%% en-tête des copies :
+	\input{./amc-form-cartouche.tex}
+	
+	\titre{DS n°xx - xxx 2025 - Feuille de réponses}
+	
+	
+	\begin{center}
+		\bf\em Les réponses doivent être écrites exclusivement sur cette feuille.
+		
+		Toute réponse apportée sur les autres pages sera ignorée.
+	\end{center}
+	
+	% Fin de la page de réponses : écriture de toutes les cases à cocher
+	\AMCform
+
+	% pour une impression recto/verso : rajoute une page blanche si le nb de pages des questions est impaire.
+	\AMCcleardoublepage
+
+}
+
+
+\end{document}

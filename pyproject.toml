@@ -1,0 +1,36 @@
+[project]
+name = "qcmgen"
+# version = "0.1.1-pre.4"
+version = "0.1.1"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "simonAndre", email = "simon.andre2@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "click>=8.1.8",
+]
+
+[project.scripts]
+qcmgen = "qcmgen.main:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.hatch.build]
+include = [
+    "qcmgen/**/*.py",
+    "qcmgen/resources/**",
+    "sample.py"
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+# [[tool.uv.index]]
+# name = "local_pypi"
+# url = "/home/san/code/local_pypi"
+# format = "flat"
