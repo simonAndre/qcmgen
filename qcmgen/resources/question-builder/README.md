@@ -13,4 +13,4 @@ exemple: `./generate.py .. questions_alea.tex`
 
 ## Prerequis
 
-Requière le paquet `qcmgen` qui peut être distribué via l'index local dans le répertoire ~/code/local_pypi
+Requière le paquet python [qcmgen](https://github.com/simonAndre/qcmgen)
