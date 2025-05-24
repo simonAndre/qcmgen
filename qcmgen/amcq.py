@@ -12,10 +12,19 @@ class Question:
         self._scoringfunc=scoringfunc
         self._body=""
         self._line2=f"\\begin{{{self._qutype}}}{{%qunumber%}}\\{self._scoringfunc}{{%qupoints%}}"
+        self._preambule=""
+        self._postambule=""
+   
+    def add_preambule(self,preambule):
+        self._preambule=preambule
+    
+    def add_postambule(self,postambule):
+        self._postambule=postambule
+
     def process(self,body,group_name,question_number):
         assert self._points is not None,f"Les points de la question {question_number} n'ont pas été définits. Vous pouvez définir les points sur chaque question ou globalement sur le groupe de question"
         line2=self._line2.replace("%qunumber%",question_number).replace("%qupoints%",str(self._points))
-        return f"\\element{{{group_name}}}{{\n\t{line2}\n{self._qutext}\n\t\t{body}\n\t\\end{{{self._qutype}}}\n}}"
+        return f"\\element{{{group_name}}}{{{self._preambule}\n\t{line2}\n{self._qutext}\n\t\t{body}\n\t\\end{{{self._qutype}}}\n{self._postambule}}}"
 
 class QuSingleChoice(Question):
     def __init__(self,question_text:str,cols:int=1,qutype="question",points=None,scoringfunc="sanbar"):
@@ -71,10 +80,21 @@ class QuestionGroup:
         self._points=points
         self._group_name=group_name
         self._questions=[]
+        self._preambule=""
+        self._postambule=""
+
+    def add_rule_before(self):
+        """ajoute une ligne horizontale avant chaque question"""
+        self._preambule="\n\\begin{center}\\rule{4cm}{0.4pt}\\end{center}"
+    def add_rule_after(self):
+        """ajoute une ligne horizontale après chaque question"""
+        self._postambule="\\begin{center}\\rule{4cm}{0.4pt}\\end{center}\n"
     
     def add_question(self,question:Question):
         if question._points is None:
             question._points=self._points
+        question.add_preambule(self._preambule)
+        question.add_postambule(self._postambule)
         self._questions.append(question)
 
     def process(self):
