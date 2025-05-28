@@ -10,10 +10,11 @@ authors = [
 requires-python = ">=3.12"
 dependencies = [
     "click>=8.1.8",
+    "jinja2"
 ]
 
 [project.scripts]
-qcmgen = "qcmgen.main:main"
+qcmgen = "src.qcmgen.main:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -22,13 +23,20 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build]
 include = [
-    "qcmgen/**/*.py",
-    "qcmgen/resources/**",
+    "src.qcmgen/**/*.py",
+    "src.qcmgen/resources/**",
     "sample.py"
 ]
 
 [tool.hatch.metadata]
 allow-direct-references = true
+
+[tool.pytest.ini_options]
+addopts = [
+    "--import-mode=importlib",
+]
+pythonpath = "src"
+
 
 # [[tool.uv.index]]
 # name = "local_pypi"

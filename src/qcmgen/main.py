@@ -1,6 +1,6 @@
 import click
 from pathlib import Path
-from .template_mgr import create_project_structure,get_curr_project_dir
+from .template_mgr import create_project_structure,get_curr_project_dir,renderjinja
 from .amc_commands import prepare_project,open_AMC
 from .common.utils import import_from_source_file,print_error,BadArgsError, UserError
 CONTEXT_SETTINGS = dict(help_option_names=['-h', '--help'])
@@ -18,15 +18,16 @@ def main() -> None:
 @main.command()
 @click.argument('folder')
 @click.option('--overwrite', is_flag=True, help='écrase le rep projet s''il existe déjà')
-def init(**kwargs):
+@click.option('--answersheet', is_flag=True, help='utilise une feuille de réponse séparée des questions (sinon, les réponses doivent être apportées dans la feuille de questions)')
+def init(folder,overwrite,answersheet):
     """
     crée le repertoire AMC à partir de la structure de projet par défaut et 
     des fichiers templates contenus dans le repertoire qcmgen.ressources.amc_bootstrap_template 
     du présent package
     """
-    create_project_structure(**kwargs)
-    open_AMC(Path(kwargs["folder"]))
-
+    prjectdata={"separatedanswershet":answersheet}
+    create_project_structure(folder,overwrite,prjectdata)
+    open_AMC(Path(folder))
 
 @main.command()
 
@@ -49,6 +50,20 @@ def amc(**kwargs):
         open_AMC(amcproj)
     else:
         print("ERREUR: le repertoire projet n'existe pas")
+
+@main.command()
+def testrender(**kwargs):
+    from .common.jinja_templating import renderjinja
+    d={
+        "amcq":{
+            "maxpoints":4,
+            "questionid":"qtest-1",
+            "content":"ceci est une \n question test \\ retour à al alinge...",
+            "lines":3
+        }
+    }
+    res=renderjinja("qcmgen","resources/amc_elements_templates","open-question.tex.jinja",d)
+    print(res)
 
 
 @main.command()

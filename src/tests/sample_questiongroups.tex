@@ -1,0 +1,48 @@
+
+\element{groupe1}{
+\begin{question}{id1}\sanbar{1}
+	question simple
+	\begin{multicols}{2}
+		\begin{choices}
+			\correctchoice{bon choix}
+			\wrongchoice{mauvais choix 1}
+			\wrongchoice{mauvais choix 2}
+			\wrongchoice{mauvais choix 3}
+			\wrongchoice{mauvais choix 4}
+		\end{choices}
+	\end{multicols}
+\end{question}    
+}
+\element{groupe1}{
+\begin{questionmult}{id2}\sanbarm{1}
+	question multiple
+	\begin{multicols}{2}
+		\begin{choices}
+			\correctchoice{bon choix 1}
+			\correctchoice{bon choix 2}
+			\wrongchoice{mauvais choix 1}
+			\wrongchoice{mauvais choix 2}
+			\wrongchoice{mauvais choix 3}
+		\end{choices}
+	\end{multicols}
+\end{questionmult}
+
+\begin{question}{id3}\sanbar{2}
+	une question ouverte
+	\AMCOpen{lines=3,dots=false,question=id3}{
+		\wrongchoice[F]{f}
+		\scoring{0}
+		\wrongchoice[P]{p}
+		\scoring{1}
+		\correctchoice[J]{j}
+		\scoring{2}
+	}    
+\end{question}
+
+}
+
+
+
+
+
+\setgroupmode{groupe1}{withoutreplacement}

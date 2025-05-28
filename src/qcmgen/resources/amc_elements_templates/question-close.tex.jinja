@@ -1,0 +1,8 @@
+\begin{{questiontype|embrace}}{{questionid | embrace}}
+({{maxpoints}} pts) {{content}}
+\begin{multicols}{{multicols|embrace}}
+\begin{choices}
+{% for choix in choices %}{% if choix.correct %}\correctchoice{{choix.text|embrace}}{% else %}\wrongchoice{{choix.text|embrace}}{% endif %}
+{% endfor %}\end{choices}
+\end{multicols}
+\end{{questiontype|embrace}}

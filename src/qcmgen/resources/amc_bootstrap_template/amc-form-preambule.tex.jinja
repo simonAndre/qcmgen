@@ -3,7 +3,11 @@
 
 \usepackage[utf8x]{inputenc}
 \usepackage[T1]{fontenc}
+{% if separatedanswershet %}
 \usepackage[francais,bloc,completemulti,separateanswersheet,outsidebox]{automultiplechoice}
+{% else %}
+\usepackage[francais,bloc,completemulti,outsidebox]{automultiplechoice}
+{% endif %}
 \usepackage{multicol}
 \usepackage{minted}
 \usepackage[svgnames]{xcolor}

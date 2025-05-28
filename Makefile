@@ -3,7 +3,10 @@ SHELL:=/bin/bash
 .ONESHELL:
 .PHONY: build publish all owcache
 
-build:
+test:
+	uv run pytest ./src/tests
+
+build: test
 	uv build -o ~/code/local_pypi/ .
 
 owcache: build

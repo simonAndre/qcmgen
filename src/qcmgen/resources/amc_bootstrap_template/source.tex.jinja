@@ -6,13 +6,21 @@
 \input{sample_questiongroups.tex}
 \onecopy{2}{
 
+	{% if not separatedanswershet %}
+	\input{./amc-form-cartouche.tex}
+	{% endif %}
+
+
 	\titre{DS n°xx - xxx 2025 - Questions}
 	
 	\begin{center}
-	\bf\em Pour répondre aux questions, utilisez exclusivement la feuille de réponse.
+	\bf\em 
+	{% if separatedanswershet %}
+	Pour répondre aux questions, utilisez exclusivement la feuille de réponse.
 	
 	Toute réponse apportée sur les autres pages sera ignorée.
 	
+	{% endif %}
 	Le trèfle indique des réponses à choix multiple (1 ou plusieurs réponses possibles). Sans trèfle, une seule réponse possible.
 	
 	\end{center}	
@@ -36,6 +44,7 @@
 	% pour une impression recto/verso : rajoute une ajoute page blanche sur nb pages impaire.
 	\AMCcleardoublepage
 
+	{% if separatedanswershet %}
 
 	% Début de la page de réponses
 	\AMCformBegin 
@@ -57,6 +66,7 @@
 
 	% pour une impression recto/verso : rajoute une page blanche si le nb de pages des questions est impaire.
 	\AMCcleardoublepage
+	{% endif %}
 
 }
 
