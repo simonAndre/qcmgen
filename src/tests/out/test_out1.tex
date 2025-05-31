@@ -1,0 +1,89 @@
+
+
+% *** Groupe de question groupe1 : 1 éléments***
+% pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{groupe1}
+\element{groupe1}{
+    \begin{question}{quopen1}
+    (2 pts) open question 1
+    \AMCOpen{lines=3,dots=false,question=quopen1}{
+        \wrongchoice[F]{f}
+        \scoring{0}
+        \wrongchoice[P]{p}
+        \scoring{1}
+        \correctchoice[J]{j}
+        \scoring{2}
+    }    
+\end{question}
+
+}
+
+% fin groupe groupe1
+
+% *** Groupe de question groupe2 : 1 éléments***
+% pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{groupe2}
+\element{groupe2}{
+    \begin{question}{quopen2}
+    (2 pts) open question 2
+    \AMCOpen{lines=3,dots=false,question=quopen2}{
+        \wrongchoice[F]{f}
+        \scoring{0}
+        \wrongchoice[P]{p}
+        \scoring{1}
+        \correctchoice[J]{j}
+        \scoring{2}
+    }    
+\end{question}
+
+}
+
+% fin groupe groupe2
+
+% *** Groupe de question groupe3 : 2 éléments***
+% pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{groupe3}
+\element{groupe3}{
+    \begin{question}{groupe3-1}
+    (1 pts) open question 3
+    \AMCOpen{lines=1,dots=false,question=groupe3-1}{
+        \wrongchoice[F]{f}
+        \scoring{0}
+        \wrongchoice[P]{p}
+        \scoring{1}
+        \correctchoice[J]{j}
+        \scoring{2}
+    }    
+\end{question}
+
+}
+\element{groupe3}{
+    \begin{question}{groupe3-2}
+    (1 pts) open question 4
+    \AMCOpen{lines=1,dots=false,question=groupe3-2}{
+        \wrongchoice[F]{f}
+        \scoring{0}
+        \wrongchoice[P]{p}
+        \scoring{1}
+        \correctchoice[J]{j}
+        \scoring{2}
+    }    
+\end{question}
+
+}
+
+% pour mélanger aléatoirement les questions du groupe de question
+\setgroupmode{groupe3}{withreplacement}
+% fin groupe groupe3
+
+% *** Groupe de question questiongroup-1 : 1 éléments***
+% pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{questiongroup-1}
+\element{questiongroup-1}{
+    \begin{question}{questiongroup-1}
+    (1 pts) sipgnle choice quest 1
+    \begin{multicols}{2}
+        \begin{choices}
+        \end{choices}
+    \end{multicols}
+\end{question}
+
+}
+
+% fin groupe questiongroup-1

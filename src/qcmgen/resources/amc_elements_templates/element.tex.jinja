@@ -1,5 +1,11 @@
-\\element{{group_name | embrace }}{{'{'}}
-    {{preambule}}
+\element{{name | embrace }}{{'{'}}
+    {% if addrulebefore %}
+    \begin{center}\rule{4cm}{0.4pt}\end{center}
+    {% endif %}
+    {% if preambule %}{{ preambule }}{% endif %}
     {{content}}
-    {{postambule}}
+    {% if postambule %}{{ postambule }}{% endif %}
+    {% if addruleafter %}
+    \begin{center}\rule{4cm}{0.4pt}\end{center}
+    {% endif %}
 {{'}'}}

@@ -1,0 +1,21 @@
+% *** Groupe de question groupe1 ***
+% pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{groupe1}
+
+\element{groupe1-1}{
+    \begin{question}{quopen1}
+    (2 pts) open question 1
+    \AMCOpen{lines=3,dots=false,question=quopen1}{
+        \wrongchoice[F]{f}
+        \scoring{0}
+        \wrongchoice[P]{p}
+        \scoring{1}
+        \correctchoice[J]{j}
+        \scoring{2}
+    }    
+\end{question}
+
+}
+
+
+% pour mélanger aléatoirement les questions du groupe de question
+\setgroupmode{groupe1}{withreplacement}

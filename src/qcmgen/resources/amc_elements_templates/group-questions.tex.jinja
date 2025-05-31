@@ -1,0 +1,10 @@
+
+
+% *** Groupe de question {{ group_name }} : {{elements|length()}} éléments***
+% pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{{ group_name | embrace }}
+{{ content }}
+{% if elements|length()>1 %}
+% pour mélanger aléatoirement les questions du groupe de question
+\setgroupmode{{ group_name | embrace }}{withreplacement}
+{% endif %}
+% fin groupe {{group_name}}

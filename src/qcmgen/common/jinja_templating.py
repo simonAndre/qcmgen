@@ -7,7 +7,7 @@ def renderjinja(package,packagePath,resname,data):
         outpath (_type_): repertoire de destination des fichiers générés à partir des templates jinja
         data (_type_): _description_
     """
-    environment = jinja2.Environment(loader=jinja2.PackageLoader(package,packagePath))
+    environment = jinja2.Environment(loader=jinja2.PackageLoader(package,packagePath),trim_blocks=True,lstrip_blocks=True)
     environment.filters["embrace"]=embrace
     jinjatemplate = environment.get_template(resname)
     return jinjatemplate.render(data)

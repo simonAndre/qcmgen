@@ -1,10 +1,18 @@
 
 SHELL:=/bin/bash
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+mkfile_dir := $(dir $(mkfile_path))
+PYTHON_BIN := uv run python
 .ONESHELL:
 .PHONY: build publish all owcache
+PYTHON_RUN := $(PYTHON_BIN)
+PYTHON_DEBUG := $(PYTHON_BIN) -m debugpy --listen 127.0.0.1:5678 --wait-for-client 
 
 test:
-	uv run pytest ./src/tests
+	$(PYTHON_RUN) -m pytest ./src/tests
+
+testd:
+	$(PYTHON_DEBUG) -m pytest ./src/tests
 
 build: test
 	uv build -o ~/code/local_pypi/ .
