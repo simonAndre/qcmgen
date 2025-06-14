@@ -51,19 +51,19 @@ def amc(**kwargs):
     else:
         print("ERREUR: le repertoire projet n'existe pas")
 
-@main.command()
-def testrender(**kwargs):
-    from .common.jinja_templating import renderjinja
-    d={
-        "amcq":{
-            "maxpoints":4,
-            "questionid":"qtest-1",
-            "content":"ceci est une \n question test \\ retour à al alinge...",
-            "lines":3
-        }
-    }
-    res=renderjinja("qcmgen","resources/amc_elements_templates","open-question.tex.jinja",d)
-    print(res)
+# @main.command()
+# def testrender(**kwargs):
+#     from .common.jinja_templating import renderjinja
+#     d={
+#         "amcq":{
+#             "maxpoints":4,
+#             "questionid":"qtest-1",
+#             "content":"ceci est une \n question test \\ retour à al alinge...",
+#             "lines":3
+#         }
+#     }
+#     res=renderjinja("qcmgen","resources/amc_elements_templates","open-question.tex.jinja",d)
+#     print(res)
 
 
 @main.command()
