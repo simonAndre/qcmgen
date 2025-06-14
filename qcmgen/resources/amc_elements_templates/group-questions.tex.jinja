@@ -1,4 +1,6 @@
-
+{% if answer_list|length()>0 %}
+{{answer_list}}
+{% endif %}
 
 % *** Groupe de question {{ group_name }} : {{elements|length()}} éléments***
 % pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{{ group_name | embrace }}

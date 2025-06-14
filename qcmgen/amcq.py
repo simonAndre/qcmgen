@@ -1,4 +1,5 @@
 # amcq:  AMC questions types
+import random
 from pathlib import Path
 from .common.jinja_templating import renderjinja
 from collections import namedtuple
@@ -46,6 +47,8 @@ class Question:
         self._questiondata["questionid"]=self._question_id
         self._questiondata["maxpoints"]=self._points
         return renderjinja("qcmgen", "resources/amc_elements_templates", self._template,self._questiondata)
+    def process_answer(self):
+        return ""
 
 
 class QuSingleChoice(Question):
@@ -84,7 +87,7 @@ class QuMultipleChoice(QuSingleChoice):
 class QuOpen(Question):
     """Question open (saisie libre du résultat)"""
 
-    def __init__(self, question_text: str, lines: int, points=None,question_id=None):
+    def __init__(self, question_text: str, lines: int, points=None,answer=None,question_id=None):
         """Question open (saisie libre du résultat)
 
         Args:
@@ -98,10 +101,31 @@ class QuOpen(Question):
         )
         self._questiondata["lines"]=lines
         self.template="question-open.tex.jinja"
-
+        if answer:
+            self.set_answer(answer)
+        else:
+            self._questiondata["answer"]={}
+    
+    @property
+    def answer(self):
+        return self._questiondata["answer"]
+    
+    def set_answer(self,content,name=None):
+        if not name:
+            # les noms de latex savebox doivent être des fonctions uniquement ocmposées de caractères alphabétiques...
+            name="".join([chr(random.randint(97,122)) for _ in range(10)])
+        self._questiondata["answer"]={
+            "answer_content":content,
+            "answer_name":name
+        }
+    
 
     def process(self, question_id=None):
         return super().process(question_id)
+    def process_answer(self):
+        if self._questiondata["answer"]:
+            return renderjinja("qcmgen", "resources/amc_elements_templates", "answer.tex.jinja",self._questiondata["answer"])
+        return ""
 
 class Element:
     def __init__(self,name=None):
@@ -136,6 +160,12 @@ class Element:
         self._elementdata["content"]=content
         return renderjinja("qcmgen", "resources/amc_elements_templates", "element.tex.jinja",self._elementdata)
 
+    def process_answer(self):
+        content=""
+        for qu in self._questions:
+            content+=qu.process_answer()
+        return content
+
 
 class QuestionGroup:
     """Groupe de questions homogène. pour rendre aléatoires les composantes d'une question,
@@ -161,7 +191,9 @@ class QuestionGroup:
         self._data={
             "group_name":group_name,
             "content":"",
-            "elements":[]
+            "elements":[],
+            "answer_list":[],
+
         }
         self._elements = []
         self._isolatedquestionsnumber=0
@@ -184,12 +216,14 @@ class QuestionGroup:
         print(
             f"génération du groupe de question {self._group_name} ({len(self._elements)} elements)"
         )
+        self._data["answer_list"]=""
         for element in self._elements:
             self._data["elements"].append(element)
             self._data["content"] += (
                 element.process()
                 + "\n"
             )
+            self._data["answer_list"]+=element.process_answer()
         return renderjinja("qcmgen", "resources/amc_elements_templates", "group-questions.tex.jinja",self._data)
 
 

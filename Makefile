@@ -9,12 +9,12 @@ PYTHON_RUN := $(PYTHON_BIN)
 PYTHON_DEBUG := $(PYTHON_BIN) -m debugpy --listen 127.0.0.1:5678 --wait-for-client 
 
 test:
-	$(PYTHON_RUN) -m pytest ./src/tests
+	$(PYTHON_RUN) -m pytest ./tests
 
 testd:
-	$(PYTHON_DEBUG) -m pytest ./src/tests
+	$(PYTHON_DEBUG) -m pytest ./tests
 
-build: test
+build:
 	uv build -o ~/code/local_pypi/ .
 
 owcache: build

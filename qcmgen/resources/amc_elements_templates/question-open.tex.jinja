@@ -1,6 +1,6 @@
 \begin{question}{{questionid | embrace }}
     ({{maxpoints}} pts) {{content}}
-    \AMCOpen{lines={{lines}},dots=false,question={{questionid}}}{
+    \AMCOpen{lines={{lines}},dots=false,question={{questionid}}{% if answer is defined and answer.answer_name|length()>0 %},answer=\usebox{\{{ answer.answer_name }}}{%endif%}}{
         \wrongchoice[F]{f}
         \scoring{0}
         \wrongchoice[P]{p}

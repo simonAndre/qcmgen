@@ -1,9 +1,10 @@
 [project]
 name = "qcmgen"
-# version = "0.1.1-pre.4"
-version = "0.1.1"
+version = "0.1.2-pre.2"
+# version = "0.1.1"
 description = "Add your description here"
 readme = "README.md"
+license = { file = "LICENSE" }
 authors = [
     { name = "simonAndre", email = "simon.andre2@gmail.com" }
 ]
@@ -14,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-qcmgen = "src.qcmgen.main:main"
+qcmgen = "qcmgen.main:main"
 
 [build-system]
 requires = ["hatchling"]
@@ -23,19 +24,22 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build]
 include = [
-    "src.qcmgen/**/*.py",
-    "src.qcmgen/resources/**",
-    "sample.py"
+    "qcmgen/**/*.py",
+    "qcmgen/resources/**",
 ]
-
 [tool.hatch.metadata]
 allow-direct-references = true
+# [tool.setuptools.packages.find]
+# where = ["src"]
+[tool.hatch.build.targets.wheel]
+packages = ["qcmgen"]
+
 
 [tool.pytest.ini_options]
 addopts = [
     "--import-mode=importlib",
 ]
-pythonpath = "src"
+# pythonpath = "src"
 
 
 # [[tool.uv.index]]

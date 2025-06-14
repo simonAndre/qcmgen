@@ -21,16 +21,18 @@ def test_render_single_questions():
 
 
 def test_render_file1():
-    qfile=QuestionsFile("./src/tests/out","test_out1.tex")
+    
+    qfile=QuestionsFile("./tests/out","test_out1.tex")
     qg1=QuestionGroup(3,"groupe1")
     quopen1=QuOpen("open question 1",3,2,question_id="quopen1")
+    quopen1.set_answer("une super réponse 1")
     qg1.add_question(quopen1)
     qfile.add_questiongroup(qg1)
 
     qg2=QuestionGroup(3,"groupe2")
-    quopen2=QuOpen("open question 2",3,2,question_id="quopen2")
-    qg2.add_question(quopen2)
+    qg2.add_question(QuOpen("open question 2",3,2,question_id="quopen2",answer="une autre super réponse"))
     qfile.add_questiongroup(qg2)
+
 
     qg3=QuestionGroup(1,"groupe3")
     qg3.add_question(QuOpen("open question 3",1,1))
@@ -38,5 +40,6 @@ def test_render_file1():
     qfile.add_questiongroup(qg3)
     qfile.add_single_question(QuSingleChoice("sipgnle choice quest 1",2,1))
 
+    qfile.add_single_question(QuOpen("titi toutou",lines=2,points=3,answer="tantant"))
 
     qfile.flush()

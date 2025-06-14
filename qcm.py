@@ -2,7 +2,7 @@
 # /// script
 # requires-python = ">=3.12"
 # dependencies = [
-#     "qcmgen>=0.1.0",
+#     "qcmgen>=0.1.2rc2",
 #     "jinja2",
 # ]
 # [[tool.uv.index]]

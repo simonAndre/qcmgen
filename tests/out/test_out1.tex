@@ -1,11 +1,14 @@
-
+\newsavebox{\ecvaqjgpnd}
+\savebox{\ecvaqjgpnd}{\parbox[t]{14cm}{\color{red}{
+une super réponse 1
+}}}
 
 % *** Groupe de question groupe1 : 1 éléments***
 % pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{groupe1}
 \element{groupe1}{
     \begin{question}{quopen1}
     (2 pts) open question 1
-    \AMCOpen{lines=3,dots=false,question=quopen1}{
+    \AMCOpen{lines=3,dots=false,question=quopen1,answer=\usebox{\ecvaqjgpnd}}{
         \wrongchoice[F]{f}
         \scoring{0}
         \wrongchoice[P]{p}
@@ -17,14 +20,17 @@
 
 }
 
-% fin groupe groupe1
+% fin groupe groupe1\newsavebox{\ttntplhida}
+\savebox{\ttntplhida}{\parbox[t]{14cm}{\color{red}{
+une autre super réponse
+}}}
 
 % *** Groupe de question groupe2 : 1 éléments***
 % pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{groupe2}
 \element{groupe2}{
     \begin{question}{quopen2}
     (2 pts) open question 2
-    \AMCOpen{lines=3,dots=false,question=quopen2}{
+    \AMCOpen{lines=3,dots=false,question=quopen2,answer=\usebox{\ttntplhida}}{
         \wrongchoice[F]{f}
         \scoring{0}
         \wrongchoice[P]{p}
@@ -37,7 +43,6 @@
 }
 
 % fin groupe groupe2
-
 % *** Groupe de question groupe3 : 2 éléments***
 % pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{groupe3}
 \element{groupe3}{
@@ -72,7 +77,6 @@
 % pour mélanger aléatoirement les questions du groupe de question
 \setgroupmode{groupe3}{withreplacement}
 % fin groupe groupe3
-
 % *** Groupe de question questiongroup-1 : 1 éléments***
 % pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{questiongroup-1}
 \element{questiongroup-1}{
@@ -86,4 +90,26 @@
 
 }
 
-% fin groupe questiongroup-1
+% fin groupe questiongroup-1\newsavebox{\psljpqbfwx}
+\savebox{\psljpqbfwx}{\parbox[t]{14cm}{\color{red}{
+tantant
+}}}
+
+% *** Groupe de question questiongroup-2 : 1 éléments***
+% pour insérer une question tirée aléatoirement depuis ce groupe, utiliser \insertgroup[1]{questiongroup-2}
+\element{questiongroup-2}{
+    \begin{question}{questiongroup-2}
+    (3 pts) titi toutou
+    \AMCOpen{lines=2,dots=false,question=questiongroup-2,answer=\usebox{\psljpqbfwx}}{
+        \wrongchoice[F]{f}
+        \scoring{0}
+        \wrongchoice[P]{p}
+        \scoring{1}
+        \correctchoice[J]{j}
+        \scoring{2}
+    }    
+\end{question}
+
+}
+
+% fin groupe questiongroup-2
