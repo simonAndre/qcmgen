@@ -10,7 +10,7 @@
             "request": "attach",
             "connect": {
                 "host": "localhost",
-                "port": 5678
+                "port": 9265
             },
             "pathMappings": [
                 {
@@ -19,6 +19,7 @@
                 }
             ]
         },
+       
         {
             "name": "Python Debugger: Attach using Process Id",
             "type": "debugpy",

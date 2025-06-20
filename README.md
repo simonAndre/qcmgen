@@ -104,3 +104,11 @@ utiliser le Makefile.
 
 pour builder et copier le package sur le "repo local": `make all`
 
+
+### debugging
+
+dans un nouveau repertoire: 
+```bash
+uv pip install --editable /home/san/code/qcmgen
+debug=true uv run /home/san/code/qcmgen/qcm_debug.py
+```

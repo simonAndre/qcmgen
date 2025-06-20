@@ -28,12 +28,15 @@ def renderjinjaresources(sourcedir,outpath,data):
     prj_folder = Path(outpath)
     for fi in importlib.resources.files(sourcedir).iterdir():
         if fi.is_file() and fi.name.endswith(".jinja"):
-            contenu=renderjinja("qcmgen","resources/amc_bootstrap_template",fi.name)
-            print(f"generation du fichier {fi.name}")
-            # l'extension .jinja est retirée du nom de fichier pour crérer le fichier de destinataiton
-            outfilename=re.sub(r'\.jinja$','',fi.name)
-            with (prj_folder/outfilename).open("w", encoding="utf-8") as outf:
-                outf.write(contenu)
+            try:
+                contenu=renderjinja("qcmgen","resources/amc_bootstrap_template",fi.name,data)
+                print(f"generation du fichier {fi.name}")
+                # l'extension .jinja est retirée du nom de fichier pour crérer le fichier de destinataiton
+                outfilename=re.sub(r'\.jinja$','',fi.name)
+                with (prj_folder/outfilename).open("w", encoding="utf-8") as outf:
+                    outf.write(contenu)
+            except Exception as e:
+                raise ValueError(f"erreur dans le rendu du template {fi.name}") from e
 
 
 def get_curr_project_dir(folder:str="."):
