@@ -7,6 +7,18 @@ Ce programme permet:
 
 [documentation AMC](https://download.auto-multiple-choice.net/auto-multiple-choice.en.pdf)
 
+
+## prerequis
+
+installer préalablement : 
+
+- [texlive](https://wiki.archlinux.org/title/TeX_Live#Installation)
+- [auto-multiple-choice](https://www.auto-multiple-choice.net/install/)
+
+après l'install, il est possible que le fichier automultiplechoice.sty ne soit pas trouvé par texlive, dasn ce cas, ajouter un symlink : 
+`sudo ln -s /usr/share/texmf/tex/latex/AMC /usr/local/texlive/texmf-local/tex/latex/auto-multiple-choice` puis relancer : `sudo mktexlsr /usr/local/texlive/texmf-local `
+vérifier avec `kpsewhich automultiplechoice.sty` qui doit renvoyer vers le fichier `automultiplechoice.sty`
+
 ## Usage
 
 la manière la plus simple de lancer le programme est via le script qcm.py  : `./qcm.py -h`
