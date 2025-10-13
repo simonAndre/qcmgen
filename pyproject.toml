@@ -40,6 +40,11 @@ packages = ["qcmgen"]
 addopts = [
     "--import-mode=importlib",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.4.2",
+]
 # pythonpath = "src"
 
 

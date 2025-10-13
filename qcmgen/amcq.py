@@ -260,7 +260,7 @@ class QuestionsFile:
 
         with open(amc_main_file, "w") as f:
             f.write(content)
-            print(f"""
+            print(rf"""
 >>> fichier {amc_main_file} correctement créé,
 pour importer les questions du fichier, dans le fichier latex ppal: source.tex :
 - importez le fichier de questions: \input{{{amc_main_file}}}
