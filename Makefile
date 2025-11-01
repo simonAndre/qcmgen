@@ -6,7 +6,7 @@ PYTHON_BIN := uv run python
 .ONESHELL:
 .PHONY: build publish all owcache
 PYTHON_RUN := $(PYTHON_BIN)
-PYTHON_DEBUG := $(PYTHON_BIN) -m debugpy --listen 127.0.0.1:5678 --wait-for-client 
+PYTHON_DEBUG := $(PYTHON_BIN) -m debugpy --listen 127.0.0.1:9265 --wait-for-client 
 
 test:
 	$(PYTHON_RUN) -m pytest ./tests
@@ -22,3 +22,7 @@ owcache: build
 
 all: build
 
+rund:
+	$(PYTHON_DEBUG) -m qcmgen.main 
+run:
+	$(PYTHON_RUN) -m qcmgen.main 
